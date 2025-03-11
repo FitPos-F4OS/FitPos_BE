@@ -43,4 +43,6 @@ public class UserEntity {
         OWNER, ADMIN
     }
 
+    @Column(nullable = false, columnDefinition = "INT DEFAULT 0")
+    private int point;
 }

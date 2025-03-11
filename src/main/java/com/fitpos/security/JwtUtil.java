@@ -44,7 +44,7 @@ public class JwtUtil {
     }
 
     //JWT 에서 사용자 정보 가져오기
-    public String extractUsername(String token) {
+    public String extractId(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(getSigningKey())  // SECRET_KEY로 서명 검증
                 .build()
