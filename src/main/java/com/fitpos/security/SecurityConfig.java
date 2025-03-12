@@ -29,12 +29,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+
+                .cors(cors -> cors.disable())
+
                 //csrf 비활성화
-                .csrf(csrf -> csrf.disable())
+                .csrf(csrf -> csrf.disable()) // CSRF 비활성화
+
 
                 //요청 맵핑값 허용
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/signup").permitAll()
+                        .requestMatchers("/user/login", "/signup").permitAll()
                         .anyRequest().authenticated()
                 )
                 //세션 사용 X JWT 사용하기
